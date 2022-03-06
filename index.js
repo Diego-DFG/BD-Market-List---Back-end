@@ -16,7 +16,7 @@ const cookieParser = require('cookie-parser');
   app.use(
     cors({
       credentials: true,
-      origin: true,
+      origin: 'https://diego-dfg.github.io',
     })
   );
 app.use(express.json());
