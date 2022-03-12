@@ -8,7 +8,6 @@ const LocalStrategy = require('passport-local').Strategy;
 
 const arrayUsuarioAutenticado = [];
 
-
 passport.use(new LocalStrategy(
   {
     usernameField: 'usuario',
@@ -55,7 +54,7 @@ function verificaToken(req, res, next) {
 
 
 /** Rotas para Autenticação e Login **/
-rotas.options("/auth", passport.authenticate('local', {session: false}), async (req, res) => {
+rotas.post("/auth", passport.authenticate('local', {session: false}), async (req, res) => {
     const usuarioAutenticado = arrayUsuarioAutenticado[0];
     const payload = {id: usuarioAutenticado.id};
     const options = { secure: true, sameSite: 'none', httpOnly: true}; 
