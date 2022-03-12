@@ -149,6 +149,7 @@ class ListaDeCompras {
             } else {
                 arrayUsuarios.push(resultado);
                 console.log('OBJETO USUÁRIO: '+usuario);
+                console.log('USUARIO BD: '+resultado);
                 arrayUsuarios.map(objs => objs
                     .forEach((objs)=> {
                         if(objs.usuario.includes(usuario)) {
