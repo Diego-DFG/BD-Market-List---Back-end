@@ -4,7 +4,7 @@ const arraySelecionado = [];
 
 class ListaDeCompras {
 
-    retornaUsuarios(res) {
+    /*retornaUsuarios(res) {
         const sql = `SELECT * FROM usuarios`;
 
         conexao.query(sql, (erro, resultado)=> {
@@ -15,7 +15,7 @@ class ListaDeCompras {
                 res.status(200).json(resultado);
             }
         })
-    }
+    }*/
 
     retornaPorUsuario(user, res) {
         const sql = `SELECT * FROM usuarios WHERE usuario=?`;
@@ -139,6 +139,20 @@ class ListaDeCompras {
 
 
     retornaArrayUsuarios(usuario) {
+
+
+        const sql = `SELECT * FROM usuarios`;
+
+        conexao.query(sql, (erro, resultado)=> {
+            if(erro) {
+                res.status(400).json(erro);
+            } else {
+                arrayUsuarios.push(resultado);
+                res.status(200).json(resultado);
+            }
+        });
+
+
         console.log('OBJETO USUÁRIO: '+usuario);
         arrayUsuarios.map(objs => objs
             .forEach((objs)=> {
