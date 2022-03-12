@@ -22,7 +22,7 @@ passport.use(new LocalStrategy(
       console.log(objetoUsuario);
       
       
-     /* const senhaDecodificada = await bcrypt.compare(senha, objetoUsuario.senha);
+     const senhaDecodificada = await bcrypt.compare(senha, objetoUsuario.senha);
 
       if(senhaDecodificada !== true || usuario !== objetoUsuario.usuario) {
         throw new Error('Dados inconsistentes!');
@@ -35,7 +35,7 @@ passport.use(new LocalStrategy(
 
       arrayUsuarioAutenticado.push(objetoUsuario);
 
-      done(null, usuario);*/
+      done(null, usuario);
 
     } catch (error) {
       done(error);
