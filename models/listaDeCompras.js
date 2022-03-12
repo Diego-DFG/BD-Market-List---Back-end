@@ -138,9 +138,9 @@ class ListaDeCompras {
     }
 
 
-    async retornaArrayUsuarios(usuario) {
+    retornaArrayUsuarios(usuario) {
 
-        await this.retornaUsuarios();
+        this.retornaUsuarios();
 
         console.log(arrayUsuarios);
                 arrayUsuarios.push(resultado);
