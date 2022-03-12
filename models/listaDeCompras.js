@@ -139,7 +139,7 @@ class ListaDeCompras {
 
 
     retornaArrayUsuarios(usuario) {
-        
+        console.log('OBJETO USUÁRIO: '+usuario);
         arrayUsuarios.map(objs => objs
             .forEach((objs)=> {
                 if(objs.usuario.includes(usuario)) {
