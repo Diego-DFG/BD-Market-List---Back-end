@@ -15,8 +15,6 @@ passport.use(new LocalStrategy(
     session: false
   }, async (usuario, senha, done)=>{
     try {
-      console.log(usuario);
-      console.log(senha);
       const user = ListaDeCompras.retornaArrayUsuarios(usuario);
       const objetoUsuario = user;
       console.log(usuario);
