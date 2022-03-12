@@ -18,10 +18,11 @@ passport.use(new LocalStrategy(
       console.log(usuario);
       console.log(senha);
       const user = ListaDeCompras.retornaArrayUsuarios(usuario);
+      const objetoUsuario = user;
       console.log(usuario);
       console.log(senha);
       console.log(objetoUsuario.senha);
-      const objetoUsuario = user;
+      
       
       const senhaDecodificada = await bcrypt.compare(senha, objetoUsuario.senha);
 
