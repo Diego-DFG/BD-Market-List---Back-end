@@ -60,6 +60,7 @@ rotas.post("/auth", passport.authenticate('local', {session: false}), async (req
     const options = { secure: true, sameSite: 'none', httpOnly: true}; 
     const token = jwt.sign(payload.id, process.env.CHAVE_JWT);
 
+    res.setHeader({"Allow-Access-Control-Origin": "https://diego-dfg.github.io/BD-Market-List/#/"})
     res.cookie("userToken", token, options);
     res.sendStatus(204);
   });
@@ -73,10 +74,10 @@ rotas.post("/auth", passport.authenticate('local', {session: false}), async (req
 
 /** Rotas dos usuarios  **/
 
-rotas.get('/usuarios', async (req, res)=> {
+/*rotas.get('/usuarios', async (req, res)=> {
   res.setHeader({"Allow-Access-Control-Origin": "https://diego-dfg.github.io/BD-Market-List/#/"})
     await ListaDeCompras.retornaUsuarios(res);
-});
+});*/
 
 rotas.get('/usuarios/:id', async (req, res)=> {
   const id = parseInt(req.params.id);
