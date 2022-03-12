@@ -4,15 +4,15 @@ const arraySelecionado = [];
 
 class ListaDeCompras {
 
-    retornaUsuarios(res) {
+    retornaUsuarios() {
         const sql = `SELECT * FROM usuarios`;
 
         conexao.query(sql, (erro, resultado)=> {
             if(erro) {
-                res.status(400).json(erro);
+                console.log('Não foi possível retornar os usuários!')
             } else {
                 arrayUsuarios.push(resultado);
-                res.status(200).json(resultado);
+                console.log(resultado);
             }
         })
     }
