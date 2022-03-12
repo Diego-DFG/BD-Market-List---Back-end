@@ -145,22 +145,20 @@ class ListaDeCompras {
 
         conexao.query(sql, (erro, resultado)=> {
             if(erro) {
-                res.status(400).json(erro);
+                console.log('Não foi possível retornar os usuários!');
             } else {
                 arrayUsuarios.push(resultado);
-                res.status(200).json(resultado);
+                console.log('OBJETO USUÁRIO: '+usuario);
+                arrayUsuarios.map(objs => objs
+                    .forEach((objs)=> {
+                        if(objs.usuario.includes(usuario)) {
+                            console.log(arraySelecionado);
+                        arraySelecionado[0] = objs;
+                        }
+                }));
             }
         });
 
-
-        console.log('OBJETO USUÁRIO: '+usuario);
-        arrayUsuarios.map(objs => objs
-            .forEach((objs)=> {
-                if(objs.usuario.includes(usuario)) {
-                    console.log(arraySelecionado);
-                   arraySelecionado[0] = objs;
-                }
-        }));
         return arraySelecionado[0];
     }
 }
