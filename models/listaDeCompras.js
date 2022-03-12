@@ -4,7 +4,7 @@ const arraySelecionado = [];
 
 class ListaDeCompras {
 
-    /*retornaUsuarios(res) {
+    retornaUsuarios(res) {
         const sql = `SELECT * FROM usuarios`;
 
         conexao.query(sql, (erro, resultado)=> {
@@ -15,7 +15,7 @@ class ListaDeCompras {
                 res.status(200).json(resultado);
             }
         })
-    }*/
+    }
 
     retornaPorUsuario(user, res) {
         const sql = `SELECT * FROM usuarios WHERE usuario=?`;
@@ -138,16 +138,11 @@ class ListaDeCompras {
     }
 
 
-    retornaArrayUsuarios(usuario) {
+    async retornaArrayUsuarios(usuario) {
 
+        await this.retornaUsuarios();
 
-        const sql = `SELECT * FROM usuarios`;
-
-        conexao.query(sql, (erro, resultado)=> {
-            if(erro) {
-                console.log('Não foi possível retornar os usuários!');
-            } else {
-                console.log(arrayUsuarios);
+        console.log(arrayUsuarios);
                 arrayUsuarios.push(resultado);
                 console.log('OBJETO USUÁRIO: '+usuario);
                 console.log('USUARIO BD: '+arrayUsuarios);
@@ -158,8 +153,6 @@ class ListaDeCompras {
                         arraySelecionado[0] = objs;
                         }
                 }));
-            }
-        });
 
         return arraySelecionado[0];
     }
