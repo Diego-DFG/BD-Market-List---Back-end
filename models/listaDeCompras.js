@@ -147,9 +147,10 @@ class ListaDeCompras {
             if(erro) {
                 console.log('Não foi possível retornar os usuários!');
             } else {
+                console.log(arrayUsuarios);
                 arrayUsuarios.push(resultado);
                 console.log('OBJETO USUÁRIO: '+usuario);
-                console.log('USUARIO BD: '+resultado);
+                console.log('USUARIO BD: '+arrayUsuarios);
                 arrayUsuarios.map(objs => objs
                     .forEach((objs)=> {
                         if(objs.usuario.includes(usuario)) {
