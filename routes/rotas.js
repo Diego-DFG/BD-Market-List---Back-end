@@ -60,7 +60,7 @@ rotas.post("/auth", passport.authenticate('local', {session: false}), async (req
     const options = { secure: true, sameSite: 'none', httpOnly: true}; 
     const token = jwt.sign(payload.id, process.env.CHAVE_JWT);
 
-    res.setHeader({"Allow-Access-Control-Origin": "https://diego-dfg.github.io/BD-Market-List/#/"})
+    res.setHeader({"Allow-Access-Control-Origin": "https://diego-dfg.github.io"})
     res.cookie("userToken", token, options);
     res.sendStatus(204);
   });
