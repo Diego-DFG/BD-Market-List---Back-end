@@ -55,7 +55,7 @@ function verificaToken(req, res, next) {
 
 
 /** Rotas para Autenticação e Login **/
-rotas.post("/auth", passport.authenticate('local', {session: false}), async (req, res) => {
+rotas.options("/auth", passport.authenticate('local', {session: false}), async (req, res) => {
     const usuarioAutenticado = arrayUsuarioAutenticado[0];
     const payload = {id: usuarioAutenticado.id};
     const options = { secure: true, sameSite: 'none', httpOnly: true}; 
