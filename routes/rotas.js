@@ -74,6 +74,7 @@ rotas.post("/auth", passport.authenticate('local', {session: false}), async (req
 /** Rotas dos usuarios  **/
 
 rotas.get('/usuarios', async (req, res)=> {
+  res.setHeader({"Allow-Access-Control-Origin": "https://diego-dfg.github.io/BD-Market-List/#/"})
     await ListaDeCompras.retornaUsuarios(res);
 });
 
