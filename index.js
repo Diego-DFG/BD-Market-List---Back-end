@@ -8,12 +8,13 @@ const app = express();
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 
-
+const url_prod = "https://diego-dfg.github.io";
+const url_dev = "http://localhost:3001"
 
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({extended: true}));
-app.use(cors({credentials: true, origin: "https://diego-dfg.github.io"}));
+app.use(cors({credentials: true, origin: url_prod}));
 app.use('/', rotas);
 
 conexao.connect((erro)=> {

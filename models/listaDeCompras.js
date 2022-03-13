@@ -1,21 +1,34 @@
 const conexao = require('../bd/conexao');
-const arrayUsuarios = [];
+const aUsuarios = [
+	{
+		"id": 6,
+		"usuario": "Diego",
+		"email": "diegofgomes19@gmail.com",
+		"senha": "$2b$12$YQ56ph.XnjqtvxekUU6Mau6yDUH66/sjBNDI6x4pM/1xSiXTzGhom"
+	},
+	{
+		"id": 7,
+		"usuario": "Beatriz",
+		"email": "beatriz3s@hotmail.com",
+		"senha": "$2b$12$UGppSJLdvhjDPnJYz5K.7el5GjN6EDkv7poQ/J/TZty1wiC5PU.Ry"
+	}
+];
 const arraySelecionado = [];
 
 class ListaDeCompras {
 
-    retornaUsuarios() {
+    /*retornaUsuarios(res) {
         const sql = `SELECT * FROM usuarios`;
 
         conexao.query(sql, (erro, resultado)=> {
             if(erro) {
-                console.log('Não foi possível retornar os usuários!')
+                res.status(400).json(erro);
             } else {
                 arrayUsuarios.push(resultado);
-                console.log(resultado);
+                res.status(200).json(resultado);
             }
         })
-    }
+    }*/
 
     retornaPorUsuario(user, res) {
         const sql = `SELECT * FROM usuarios WHERE usuario=?`;
@@ -140,19 +153,14 @@ class ListaDeCompras {
 
     retornaArrayUsuarios(usuario) {
 
-        this.retornaUsuarios();
-
-        console.log(arrayUsuarios);
-                arrayUsuarios.push(resultado);
                 console.log('OBJETO USUÁRIO: '+usuario);
-                console.log('USUARIO BD: '+arrayUsuarios);
-                arrayUsuarios.map(objs => objs
-                    .forEach((objs)=> {
-                        if(objs.usuario.includes(usuario)) {
-                            console.log(arraySelecionado);
-                        arraySelecionado[0] = objs;
-                        }
-                }));
+                
+                aUsuarios.map(objs => {
+                    console.log('USUARIO BD: '+objs);
+                    if(objs.usuario.includes(usuario)) {
+                    arraySelecionado[0] = objs;
+                    }
+                });
 
         return arraySelecionado[0];
     }

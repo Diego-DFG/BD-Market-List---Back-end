@@ -8,6 +8,9 @@ const LocalStrategy = require('passport-local').Strategy;
 
 const arrayUsuarioAutenticado = [];
 
+const url_prod = "https://diego-dfg.github.io";
+const url_auth_dev = "http://localhost:3001";
+
 passport.use(new LocalStrategy(
   {
     usernameField: 'usuario',
@@ -65,7 +68,7 @@ rotas.post("/auth", passport.authenticate('local', {session: false}), async (req
     const options = { secure: true, sameSite: 'none', httpOnly: true}; 
     const token = jwt.sign(payload.id, process.env.CHAVE_JWT);
 
-    res.setHeader({"Allow-Access-Control-Origin": "https://diego-dfg.github.io"})
+    res.setHeader("Access-Control-Allow-Origin",url_prod)
     res.cookie("userToken", token, options);
     res.sendStatus(204);
   });
