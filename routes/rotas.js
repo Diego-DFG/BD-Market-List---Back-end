@@ -110,6 +110,8 @@ rotas.patch('/atualizaUsuario/:id', async (req, res)=> {
 
 /** Rotas da lista de compras **/
 rotas.get('/', verificaToken, async (req, res)=> {
+  console.log('Acessei lista de compras!');
+  res.setHeader("Access-Control-Allow-Origin",url_prod)
    await ListaDeCompras.retornaLista(res);
 });
 
@@ -118,7 +120,7 @@ rotas.get('/:id', async (req, res)=> {
     await ListaDeCompras.retornaListaPorId(id, res);
 });
 
-rotas.put('/cria', async (req, res)=> {
+rotas.post('/cria', async (req, res)=> {
     console.log(req.body);
     const valores = req.body;
     await ListaDeCompras.criaLista(valores, res);
