@@ -68,7 +68,7 @@ rotas.post("/auth", passport.authenticate('local', {session: false}), async (req
     res.sendStatus(204);
   });
   
-  rotas.get("/logout", async (req, res) => {
+  rotas.post("/logout", async (req, res) => {
     res.clearCookie("userToken");
     req.logout();
     return res.sendStatus(200);
