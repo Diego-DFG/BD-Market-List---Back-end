@@ -20,9 +20,6 @@ passport.use(new LocalStrategy(
     try {
       const user = ListaDeCompras.retornaArrayUsuarios(usuario);
       const objetoUsuario = user;
-      console.log('USUÁRIO: '+usuario);
-      console.log('SENHA: '+senha);
-      console.log(objetoUsuario);
       
       
      const senhaDecodificada = await bcrypt.compare(senha, objetoUsuario.senha);
@@ -31,8 +28,6 @@ passport.use(new LocalStrategy(
         throw new Error('Dados inconsistentes!');
       } else {
         console.log('Inicia área de autenticação ...');
-        console.log(senha);
-        console.log(senhaDecodificada);
         console.log('Finaliza área de autenticação ...');
       }
 
